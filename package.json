@@ -1,5 +1,5 @@
 {
-  "name": "@nelumbo/formio-data-grid",
+  "name": "@joguel63/formio-data-grid",
   "private": false,
   "version": "1.0.0",
   "type": "module",
@@ -22,13 +22,13 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "main": "./dist/@nelumbo/formio-data-grid.umd.js",
-  "module": "./dist/@nelumbo/formio-data-grid.js",
+  "main": "./dist/@joguel63/formio-data-grid.umd.js",
+  "module": "./dist/@joguel63/formio-data-grid.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/@nelumbo/formio-data-grid.es.js",
-      "require": "./dist/@nelumbo/formio-data-grid.umd.js",
+      "import": "./dist/@joguel63/formio-data-grid.es.js",
+      "require": "./dist/@joguel63/formio-data-grid.umd.js",
       "types": "./dist/index.d.ts"
     }
   },
