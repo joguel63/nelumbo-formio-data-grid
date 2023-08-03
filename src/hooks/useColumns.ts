@@ -1,10 +1,10 @@
 import { GridColDef } from "@mui/x-data-grid";
 
-import { ApiColumns, Attribute, ColumnsComponents } from "../types";
+import { FormioColumns, Attribute, ColumnsComponents } from "../types";
 import { ColumnsEnum } from "../enums";
 import { generateColumnsByType, toNumberOrFallback } from "../helpers";
 
-type ReturnType = (unformatedColumns: ApiColumns[]) => GridColDef[];
+type ReturnType = (unformatedColumns: FormioColumns[]) => GridColDef[];
 
 export const useColumns = (actions: ColumnsComponents): ReturnType => {
   const getAttributes = (attributes: Attribute[], content: string): GridColDef => {
@@ -21,7 +21,7 @@ export const useColumns = (actions: ColumnsComponents): ReturnType => {
     return newAttributes;
   };
 
-  const formatColumns = (unformatedColumns: ApiColumns[]): GridColDef[] => {
+  const formatColumns = (unformatedColumns: FormioColumns[]): GridColDef[] => {
     const columns: GridColDef[] = [];
 
     unformatedColumns?.forEach((item) => {

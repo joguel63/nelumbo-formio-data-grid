@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { DataGrid, DataGridProps, GridColDef } from "@mui/x-data-grid";
 import { TableContext } from "../context";
-import { ApiColumns, ColumnsComponents, useColumns } from "..";
+import { FormioColumns, ColumnsComponents, useColumns } from "..";
 
 type ProviderProps = {
   rows: Object[];
-  columns?: ApiColumns[];
+  columns?: FormioColumns[];
   columnsComponents?: ColumnsComponents;
   tableProps?: Omit<DataGridProps, "rows" | "columns">;
   CustomGrid?: React.FC<{ rows: Object[]; columns: GridColDef[] }>;
