@@ -150,4 +150,3 @@ function Example() {
 ```
 
 Remember to adjust `rows`, `formioColumns`, and the components according to your needs.
-```
