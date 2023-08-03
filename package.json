@@ -7,8 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies\""
+    "preview": "vite preview"
   },
   "license": "MIT",
   "files": [
@@ -22,6 +21,21 @@
     "date-fns": "^2.30.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.3",
+    "@mui/x-data-grid": "^6.10.2",
+    "date-fns": "^2.30.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.6",
+    "@vitejs/plugin-react": "^4.0.4",
+    "vite": "^4.4.8",
+    "vite-plugin-dts": "^3.4.0"
   },
   "main": "./dist/@joguel63/formio-data-grid.umd.js",
   "module": "./dist/@joguel63/formio-data-grid.js",
