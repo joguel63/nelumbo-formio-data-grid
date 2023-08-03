@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { DataGrid, DataGridProps } from "@mui/x-data-grid";
+import { DataGrid, DataGridProps, GridColDef } from "@mui/x-data-grid";
 import { TableContext } from "../context";
 import { ApiColumns, ColumnsComponents, useColumns } from "..";
 
@@ -7,24 +7,24 @@ type ProviderProps = {
   rows: Object[];
   columns?: ApiColumns[];
   columnsComponents?: ColumnsComponents;
-  children?: React.ReactNode;
   tableProps?: Omit<DataGridProps, "rows" | "columns">;
+  CustomGrid?: React.FC<{ rows: Object[]; columns: GridColDef[] }>;
 };
 
 export const TableProvider: React.FC<ProviderProps> = ({
-  children,
   rows: initialRows,
   columns = [],
   columnsComponents,
   tableProps,
+  CustomGrid,
 }) => {
   const [rows, setRows] = useState<Object[]>(initialRows ?? []);
   const getColumns = useColumns(columnsComponents ?? {});
 
   return (
     <TableContext.Provider value={{ rows, setRows }}>
-      {!children && <DataGrid {...tableProps} rows={rows} columns={getColumns(columns)} />}
-      {!!children && children}
+      {!CustomGrid && <DataGrid {...tableProps} rows={rows} columns={getColumns(columns)} />}
+      {!!CustomGrid && <CustomGrid rows={rows} columns={getColumns(columns)} />}
     </TableContext.Provider>
   );
 };
