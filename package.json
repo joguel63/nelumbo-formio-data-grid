@@ -2,7 +2,7 @@
   "name": "@joguel63/formio-data-grid",
   "description": "A library for creating user-friendly DataGrids using Formio and Material-UI (MUI)",
   "private": false,
-  "version": "1.2.6",
+  "version": "1.2.7",
   "type": "module",
   "scripts": {
     "dev": "vite",
