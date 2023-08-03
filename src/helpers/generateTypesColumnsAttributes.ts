@@ -5,6 +5,8 @@ import { generateMultilineAttributes } from "./generateMultilineAttributes";
 import { generateActionAttributes } from "./generateActionAttributes";
 import { generateCheckAttributes } from "./generateCheckAttributes";
 import { generateMultipleAttributes } from "./generateMultipleAttributes";
+import { generateDateAttributes } from "./generateDateAttributes";
+import { generateMoneyAttributes } from "./generateMoneyAttributes";
 
 export const generateColumnsByType = (
   content: string,
@@ -21,6 +23,10 @@ export const generateColumnsByType = (
       return generateCheckAttributes(content, attributes, actions);
     case ColumnsEnum.Multiple:
       return generateMultipleAttributes(content, attributes);
+    case ColumnsEnum.Date:
+      return generateDateAttributes(content, attributes);
+    case ColumnsEnum.Money:
+      return generateMoneyAttributes(content, attributes);
     default:
       return attributes;
   }

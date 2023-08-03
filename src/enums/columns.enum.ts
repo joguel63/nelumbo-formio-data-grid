@@ -4,4 +4,6 @@ export enum ColumnsEnum {
   Actions = "action",
   Check = "check",
   MultiLine = "multiLine",
+  Date = "date",
+  Money = "money",
 }
