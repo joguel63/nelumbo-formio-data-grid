@@ -18,7 +18,7 @@ o
 yarn add @joguel63/formio-data-grid
 ```
 
-##Uso
+## Uso
 
 Para utilizar la librería, solo necesitas tener un JSON de Formio. Aquí tienes un ejemplo de cómo puedes utilizarla:
 
@@ -45,11 +45,11 @@ function Example() {
 }
 ```
 
-También puedes personalizar los DataGrids de la siguiente manera:
+También puedes usar tu propio DataGrid de la siguiente manera:
 
 ```jsx
 import { TableProvider } from '@joguel63/formio-data-grid';
-import { DataGrid } from '@mui/x-data-grid';
+import { MyDataGrid } from '../components';
 
 function Example() {
   const rows = [...]; // Array de datos
@@ -66,10 +66,88 @@ function Example() {
       columns={formioColumns}
       tableProps={{ getRowId: (row) => row.name, autoHeight: true }}
       columnsComponents={columnsComponents}
-      CustomGrid={({ rows, columns }) => <DataGrid rows={rows} columns={columns} />}
+      CustomGrid={({ rows, columns }) => <MyDataGrid rows={rows} columns={columns} disableHeaderCheckbox={true} />}
     />
   );
 }
 ```
 
 Recuerda ajustar rows, formioColumns y los componentes según tus necesidades.
+
+
+# Formio-data-grid
+
+## Description
+
+Formio-data-grid is a library that facilitates the use of Formio for creating simple Material-UI (MUI) DataGrids.
+
+## Installation
+
+You can install the library via npm or yarn:
+
+```bash
+npm install @joguel63/formio-data-grid
+```
+
+or
+
+```bash
+yarn add @joguel63/formio-data-grid
+```
+
+## Usage
+
+To utilize the library, you simply need to have a Formio JSON. Here's an example of how you can use it:
+
+```jsx
+import { TableProvider } from '@joguel63/formio-data-grid';
+
+function Example() {
+  const rows = [...]; // Data array
+  const formioColumns = [...]; // Columns obtained from an API
+
+  const columnsComponents = {
+    ActionsComponent: ActionButtonsComponent,
+    CheckComponent: CheckComponent,
+  };
+
+  return (
+    <TableProvider
+      rows={rows}
+      columns={formioColumns}
+      tableProps={{ getRowId: (row) => row.name, autoHeight: true }}
+      columnsComponents={columnsComponents}
+    />
+  );
+}
+```
+
+You can also use your custom DataGrid as follows:
+
+```jsx
+import { TableProvider } from '@joguel63/formio-data-grid';
+import { MyDataGrid } from '../components';
+
+function Example() {
+  const rows = [...]; // Data array
+  const formioColumns = [...]; // Columns obtained from an API
+
+  const columnsComponents = {
+    ActionsComponent: ActionButtonsComponent,
+    CheckComponent: CheckComponent,
+  };
+
+  return (
+    <TableProvider
+      rows={rows}
+      columns={formioColumns}
+      tableProps={{ getRowId: (row) => row.name, autoHeight: true }}
+      columnsComponents={columnsComponents}
+      CustomGrid={({ rows, columns }) => <MyDataGrid rows={rows} columns={columns} disableHeaderCheckbox={true} />}
+    />
+  );
+}
+```
+
+Remember to adjust `rows`, `formioColumns`, and the components according to your needs.
+```
