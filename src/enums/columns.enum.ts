@@ -6,4 +6,7 @@ export enum ColumnsEnum {
   MultiLine = "multiLine",
   Date = "date",
   Money = "money",
+  // boolean
+  // desplagable
+  // custom
 }
