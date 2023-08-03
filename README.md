@@ -27,7 +27,7 @@ import { TableProvider } from '@joguel63/formio-data-grid';
 
 function Example() {
   const rows = [...]; // Array de datos
-  const formioColumns = [...]; // Columnas obtenidas de una API
+  const formioColumns = [...]; // Columnas obtenidas del API de formio
 
   const columnsComponents = {
     ActionsComponent: ActionButtonsComponent,
@@ -53,7 +53,7 @@ import { MyDataGrid } from '../components';
 
 function Example() {
   const rows = [...]; // Array de datos
-  const formioColumns = [...]; // Columnas obtenidas de una API
+  const formioColumns = [...]; // Columnas obtenidas del API de formio
 
   const columnsComponents = {
     ActionsComponent: ActionButtonsComponent,
@@ -64,7 +64,6 @@ function Example() {
     <TableProvider
       rows={rows}
       columns={formioColumns}
-      tableProps={{ getRowId: (row) => row.name, autoHeight: true }}
       columnsComponents={columnsComponents}
       CustomGrid={({ rows, columns }) => <MyDataGrid rows={rows} columns={columns} disableHeaderCheckbox={true} />}
     />
@@ -73,7 +72,6 @@ function Example() {
 ```
 
 Recuerda ajustar rows, formioColumns y los componentes según tus necesidades.
-
 
 # Formio-data-grid
 
@@ -104,7 +102,7 @@ import { TableProvider } from '@joguel63/formio-data-grid';
 
 function Example() {
   const rows = [...]; // Data array
-  const formioColumns = [...]; // Columns obtained from an API
+  const formioColumns = [...]; // Columns obtained from formio API
 
   const columnsComponents = {
     ActionsComponent: ActionButtonsComponent,
@@ -130,7 +128,7 @@ import { MyDataGrid } from '../components';
 
 function Example() {
   const rows = [...]; // Data array
-  const formioColumns = [...]; // Columns obtained from an API
+  const formioColumns = [...]; // Columns obtained from formio API
 
   const columnsComponents = {
     ActionsComponent: ActionButtonsComponent,
@@ -141,7 +139,6 @@ function Example() {
     <TableProvider
       rows={rows}
       columns={formioColumns}
-      tableProps={{ getRowId: (row) => row.name, autoHeight: true }}
       columnsComponents={columnsComponents}
       CustomGrid={({ rows, columns }) => <MyDataGrid rows={rows} columns={columns} disableHeaderCheckbox={true} />}
     />
