@@ -77,7 +77,7 @@ Recuerda ajustar rows, formioColumns y los componentes según tus necesidades.
 
 ```markdown
 | Prop              | Tipo                                                      | Valor por defecto | Descripción                                                  |
-|-------------------|-----------------------------------------------------------|-------------------|--------------------------------------------------------------|
+| ----------------- | --------------------------------------------------------- | ----------------- | ------------------------------------------------------------ |
 | rows              | any[]                                                     | []                | Filas de datos para la tabla.                                |
 | columns           | FormioColumns[] opcional                                  | []                | Matriz de definiciones de columnas.                          |
 | columnsComponents | ColumnsComponents opcional                                | undefined         | Componentes para personalizar la representación de columnas. |
@@ -85,7 +85,7 @@ Recuerda ajustar rows, formioColumns y los componentes según tus necesidades.
 | customGrid        | React.FC<{ rows: any[]; columns: GridColDef[] }> opcional | undefined         | Componente para personalización avanzada.                    |
 ```
 
-## Columnnas 
+## Columnnas
 
 ## Columna Simple
 
@@ -139,6 +139,7 @@ Descripción:
 Este enfoque es útil cuando deseas crear una columna que combine varios valores de los datos en un formato personalizado.
 
 ## Columna de Fecha
+
 ```json
 {
   "label": "Fecha de Inicio",
@@ -207,7 +208,7 @@ Descripción:
   - **value**: El valor asignado al atributo correspondiente.
 - **content**: En este caso, la columna de verificación (check) obtendrá la clave del campo de verificación ("isChecked") del contenido de la celda.
 
-Para esta columna en particular, se necesita un componente personalizado para cambiar el valor booleano de algún ítem dentro de los datos. 
+Para esta columna en particular, se necesita un componente personalizado para cambiar el valor booleano de algún ítem dentro de los datos.
 
 ## columna multilinea:
 
@@ -276,6 +277,55 @@ En situaciones en las que las columnas necesiten representar componentes persona
 - **CheckComponent**: Un componente funcional de React que recibe las propiedades `row` (la fila seleccionada) y `rowItems` (un array de cadenas que contiene las claves de los elementos para usar en la columna de verificación). Este componente se utiliza para cambiar el valor booleano de algún elemento dentro de los datos.
 
 Estos componentes personalizados permiten adaptar la apariencia y funcionalidad de las columnas a las necesidades específicas de la aplicación. Cada componente se ajusta a su respectiva columna y recibe las propiedades necesarias para interactuar con los datos de manera efectiva."
+
+## Tipos
+
+### Attribute
+
+```ts
+type Attribute = {
+  attr: string;
+  value: string;
+};
+```
+
+### TableComponentProps
+
+```ts
+type TableComponentProps<Trow = any> = {
+  row: Trow;
+  rowItems: Array<string>;
+};
+```
+
+### ColumnsComponents
+
+```ts
+type ColumnsComponents = {
+  ActionsComponent?: React.FC<TableComponentProps>;
+  MultilineComponent?: React.FC<TableComponentProps>;
+  CheckComponent?: React.FC<TableComponentProps>;
+};
+```
+
+### FormioColumns
+
+```ts
+type FormioColumns = {
+  label: string;
+  attrs: Attribute[];
+  content: string;
+};
+```
+
+### TableContextType
+
+```ts
+type TableContextType<Trow = Object> = {
+  rows: Array<Trow>;
+  setRows: React.Dispatch<Array<Trow>>;
+};
+```
 
 # Formio-data-grid
 
