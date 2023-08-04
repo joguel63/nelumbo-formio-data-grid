@@ -521,9 +521,7 @@ This approach allows you to display money values in the column with the correspo
 {
   "label": "Check",
   "attrs": [
-    { "attr": "headerName", "value": "
-
-Check" },
+    { "attr": "headerName", "value": "Check" },
     { "attr": "flex", "value": "1" },
     { "attr": "type", "value": "check" }
   ],
