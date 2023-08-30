@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { DataGrid, DataGridProps, GridColDef } from "@mui/x-data-grid";
 import { TableContext } from "../context";
 import { FormioColumns, ColumnsComponents, useColumns } from "..";
 
 type ProviderProps = {
-  rows: Object[];
+  rows?: Object[];
   columns?: FormioColumns[];
   columnsComponents?: ColumnsComponents;
   tableProps?: Omit<DataGridProps, "rows" | "columns">;
@@ -21,10 +21,12 @@ export const TableProvider: React.FC<ProviderProps> = ({
   const [rows, setRows] = useState<Object[]>(initialRows ?? []);
   const getColumns = useColumns(columnsComponents ?? {});
 
+  const CsGrid = useMemo(() => CustomGrid, []);
+
   return (
     <TableContext.Provider value={{ rows, setRows }}>
-      {!CustomGrid && <DataGrid {...tableProps} rows={rows} columns={getColumns(columns)} />}
-      {!!CustomGrid && <CustomGrid rows={rows} columns={getColumns(columns)} />}
+      {!CsGrid && <DataGrid {...tableProps} rows={rows} columns={getColumns(columns)} />}
+      {!!CsGrid && <CsGrid rows={rows} columns={getColumns(columns)} />}
     </TableContext.Provider>
   );
 };
